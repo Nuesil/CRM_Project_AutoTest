@@ -29,7 +29,7 @@
         </dependency>
 
 
-        <!--        Tạo setter getter-->
+        <!-- Tạo setter getter-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
