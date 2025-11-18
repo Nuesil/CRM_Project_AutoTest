@@ -6,10 +6,15 @@ import TestBase.TestBase;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
+
 public class TC01 extends TestBase {
 
     @Test
     public void verifyCreateCustomerPageElements() {
+
+        private static final Logger log = LogManager.getLogger(TC01.class);
         // 1. Navigate to "Create Customer" page
         CustomerListView customerListView = new CustomerListView();
         customerListView.clickOnNewCustomerButton();
@@ -19,9 +24,9 @@ public class TC01 extends TestBase {
 
         SoftAssert softAssert = new SoftAssert();
 
-        System.out.println("Verify 'Create Customer' page is displayed");
+        log.info("Verify 'Create Customer' page is displayed");
 
-        System.out.println("Verify all fields are Enabled & Blank by default");
+        log.info("Verify all fields are Enabled & Blank by default");
 
         // 3.1. Name Field: Enabled & Blank by default
         softAssert.assertTrue(createCustomerPage.isNameFieldEmpty(), "Name field is NOT empty.");
@@ -44,7 +49,7 @@ public class TC01 extends TestBase {
 
         softAssert.assertAll();
 
-        System.out.println("Passed");
+        log.info("Passed"););
     }
 }
 
