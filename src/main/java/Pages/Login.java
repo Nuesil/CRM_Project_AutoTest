@@ -20,7 +20,7 @@ public class Login {
     // Campaign Page
 
     
-    // Attribute: Locator
+    // Customer Attribute: Locator
     private final By emailFieldLocator = By.name("campaigntypeform:email");
     private final By passwordFieldLocator = By.id("campaigntypeform:pass");
     private final By loginButtonLocator = By.name("campaigntypeform:j_idt14");
