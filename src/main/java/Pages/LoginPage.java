@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import Utils.Driver;
 
 
-public class Login {
+public class LoginPage extends BasePage {
     
     // Campaign Page
     private final By emailLocator = By.id("campaigntypeform:email");

@@ -6,15 +6,14 @@ import TestBase.TestBase;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TC01 extends TestBase {
+    private static final Logger log = LogManager.getLogger(TC01.class);
 
     @Test
     public void verifyCreateCustomerPageElements() {
-
-        private static final Logger log = LogManager.getLogger(TC01.class);
         // 1. Navigate to "Create Customer" page
         CustomerListView customerListView = new CustomerListView();
         customerListView.clickOnNewCustomerButton();
@@ -49,7 +48,7 @@ public class TC01 extends TestBase {
 
         softAssert.assertAll();
 
-        log.info("Passed"););
+        log.info("Passed");
     }
 }
 
