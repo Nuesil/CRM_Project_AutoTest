@@ -60,6 +60,8 @@ public class CreateNewCustomer {
         clickOnCreateACustomerButton();
         clickOnCanCelButton();
     }
+    
+    
 
     public void enterName(String name) {
         Driver.WEB_DRIVER.findElement(nameFieldLocator).sendKeys(name);
