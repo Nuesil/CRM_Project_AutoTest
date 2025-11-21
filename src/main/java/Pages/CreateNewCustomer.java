@@ -1,8 +1,8 @@
 package Pages;
 
+import Utils.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import Utils.Driver;
 
 public class CreateNewCustomer {
     private final By nameFieldLocator = By.name("j_idt70:name");
@@ -10,15 +10,17 @@ public class CreateNewCustomer {
     private final By phoneFieldLocator = By.name("j_idt70:phone");
     private final By addressFieldLocator = By.name("j_idt70:address");
     private final By createCustomerButtonLocator = By.name("j_idt70:j_idt80");
-    private final By cancelButtonLocator = By.xpath("//a[@class='btn btn-white']");
+    private final By errorEmailMessageLocator = By.xpath("//input[@id='j_idt70:email']/preceding-sibling::span");
 
     private WebElement getElement(By locator) {
         return Driver.WEB_DRIVER.findElement(locator);
     }
+
     //1. Name field is BLANK & ENABLED
     public boolean isNameFieldEmpty() {
         return Driver.WEB_DRIVER.findElement(nameFieldLocator).getText().isEmpty();
     }
+
     public boolean isNameFieldEnabled() {
         return Driver.WEB_DRIVER.findElement(nameFieldLocator).isEnabled();
     }
@@ -27,6 +29,7 @@ public class CreateNewCustomer {
     public boolean isEmailFieldEmpty() {
         return Driver.WEB_DRIVER.findElement(emailFieldLocator).getText().isEmpty();
     }
+
     public boolean isEmailFieldEnabled() {
         return Driver.WEB_DRIVER.findElement(emailFieldLocator).isEnabled();
     }
@@ -35,6 +38,7 @@ public class CreateNewCustomer {
     public boolean isPhoneFieldEmpty() {
         return Driver.WEB_DRIVER.findElement(phoneFieldLocator).getText().isEmpty();
     }
+
     public boolean isPhoneFieldEnabled() {
         return Driver.WEB_DRIVER.findElement(phoneFieldLocator).isEnabled();
     }
@@ -43,12 +47,13 @@ public class CreateNewCustomer {
     public boolean isAddressFieldEmpty() {
         return Driver.WEB_DRIVER.findElement(addressFieldLocator).getText().isEmpty();
     }
+
     public boolean isAddressFieldEnabled() {
         return Driver.WEB_DRIVER.findElement(addressFieldLocator).isEnabled();
     }
 
     //5. Create Customer button is ENABLED
-    public boolean isCreateCustomerButtonClickable() {
+    public boolean isCreateCustomerButtonEnabled() {
         return Driver.WEB_DRIVER.findElement(createCustomerButtonLocator).isEnabled();
     }
 
@@ -57,8 +62,7 @@ public class CreateNewCustomer {
         enterEmail(email);
         enterPhone(phone);
         enterAddress(address);
-        clickOnCreateACustomerButton();
-        clickOnCanCelButton();
+        clickCreateCustomerButton();
     }
     
     
@@ -79,11 +83,11 @@ public class CreateNewCustomer {
         Driver.WEB_DRIVER.findElement(addressFieldLocator).sendKeys(address);
     }
 
-    public void clickOnCreateACustomerButton() {
+    public void clickCreateCustomerButton() {
         Driver.WEB_DRIVER.findElement(createCustomerButtonLocator).click();
     }
 
-    public void clickOnCanCelButton() {
-        Driver.WEB_DRIVER.findElement(cancelButtonLocator).click();
+    public String getEmailErrorMessage() {
+        return Driver.WEB_DRIVER.findElement(errorEmailMessageLocator).getText();
     }
 }
