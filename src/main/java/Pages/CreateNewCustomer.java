@@ -10,7 +10,7 @@ public class CreateNewCustomer {
     private final By phoneFieldLocator = By.name("j_idt70:phone");
     private final By addressFieldLocator = By.name("j_idt70:address");
     private final By createCustomerButtonLocator = By.name("j_idt70:j_idt80");
-    private final By errorEmailMessageLocator = By.xpath("//input[@id='j_idt70:email']/preceding::span[contains(text(),'The email is not valid')]");
+    private final By errorEmailMessageLocator = By.xpath("//input[@id='j_idt70:email']/preceding-sibling::span");
 
     private WebElement getElement(By locator) {
         return Driver.WEB_DRIVER.findElement(locator);

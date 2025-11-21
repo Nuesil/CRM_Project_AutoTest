@@ -2,7 +2,7 @@ package TC_002;
 
 import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
-import Pages.Login;
+import Pages.LoginPage;
 import TestBase.TestBase;
 import Utils.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class TC_002 extends TestBase {
     //1. Login to the system
-    Login loginPage = new Login();
+    LoginPage loginPage = new LoginPage();
     //2. Navigate to "Create Customer" page
     CustomerListView customerListView = new CustomerListView();
     //3. Initialize Page Object for CreateNewCustomer

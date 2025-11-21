@@ -4,8 +4,23 @@ import org.openqa.selenium.By;
 import Utils.Driver;
 
 
-public class Login {
-    // Attribute: Locator
+public class LoginPage extends BasePage {
+    
+    // Campaign Page
+    private final By emailLocator = By.id("campaigntypeform:email");
+    private final By passLocator = By.id("campaigntypeform:pass");
+    private final By loginLocator = By.name("campaigntypeform:j_idt14");
+
+
+    public void Login(String email, String password) {
+        type(emailLocator,email);
+        type(passLocator, password);
+        click(loginLocator);
+    }
+    // Campaign Page
+
+    
+    // Customer Attribute: Locator
     private final By emailFieldLocator = By.name("campaigntypeform:email");
     private final By passwordFieldLocator = By.id("campaigntypeform:pass");
     private final By loginButtonLocator = By.name("campaigntypeform:j_idt14");
