@@ -4,6 +4,8 @@ import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
 import Pages.LoginPage;
 import TestBase.TestBase;
+import Utils.FakerData;
+import models.Customer;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -17,11 +19,18 @@ public class TC_004 extends TestBase {
     //3. Initialize Page Object for CreateNewCustomer
     CreateNewCustomer createCustomerPage = new CreateNewCustomer();
     SoftAssert softAssert = new SoftAssert();
+    Customer randomCustomer = FakerData.generateRandomCustomer();
 
     @Test
     public void verifyValidationEmailFieldWorking() {
         loginPage.login("vyvanviet@gmail.com", "abc123");
         customerListView.clickNewCustomerButton();
-        createCustomerPage.createNewCustomer("An Hoang", "thlien100595@gmail.com", "09080988tg", "75 Chu Van An, Da Nang");
+        randomCustomer.setPhone("098a778543");
+        createCustomerPage.createNewCustomer(randomCustomer);
+
+        softAssert.assertEquals(createCustomerPage.getPhoneErrorMessage(), "Only numbers 0-9");
+        softAssert.assertAll();
+
+        System.out.println("Passed");
     }
 }

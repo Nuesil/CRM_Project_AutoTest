@@ -4,6 +4,7 @@ import Utils.Driver;
 import models.Customer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CreateNewCustomer extends BasePage {
     private final By nameFieldLocator = By.name("j_idt70:name");
@@ -12,6 +13,7 @@ public class CreateNewCustomer extends BasePage {
     private final By addressFieldLocator = By.name("j_idt70:address");
     private final By createCustomerButtonLocator = By.name("j_idt70:j_idt80");
     private final By errorEmailMessageLocator = By.xpath("//input[@id='j_idt70:email']/preceding-sibling::span");
+    private final By errorPhoneLocator = By.xpath("//input[@id='j_idt70:phone']/preceding-sibling::span");
 
     private WebElement getElement(By locator) {
         return Driver.WEB_DRIVER.findElement(locator);
@@ -62,12 +64,13 @@ public class CreateNewCustomer extends BasePage {
         return Driver.WEB_DRIVER.findElement(createCustomerButtonLocator).isEnabled();
     }
 
-    public void createNewCustomer(String name, String email, String phone, String address) {
-        enterName(name);
-        enterEmail(email);
-        enterPhone(phone);
-        enterAddress(address);
+    public void createNewCustomer(Customer customer) {
+        enterName(customer.getName());
+        enterEmail(customer.getEmail());
+        enterPhone(customer.getPhone());
+        enterAddress(customer.getAddress());
         clickCreateCustomerButton();
+        Driver.WEB_DRIVER_WAIT.until(ExpectedConditions.visibilityOfElementLocated(createCustomerButtonLocator));
     }
 
     public void fillForm(Customer customer) {
@@ -89,17 +92,24 @@ public class CreateNewCustomer extends BasePage {
 
     public void enterPhone(String phone) {
         Driver.WEB_DRIVER.findElement(phoneFieldLocator).sendKeys(phone);
+
     }
 
     public void enterAddress(String address) {
         Driver.WEB_DRIVER.findElement(addressFieldLocator).sendKeys(address);
+
     }
 
     public void clickCreateCustomerButton() {
         Driver.WEB_DRIVER.findElement(createCustomerButtonLocator).click();
+
     }
 
     public String getEmailErrorMessage() {
         return Driver.WEB_DRIVER.findElement(errorEmailMessageLocator).getText();
+    }
+
+    public String getPhoneErrorMessage() {
+        return Driver.WEB_DRIVER.findElement(errorPhoneLocator).getText();
     }
 }
