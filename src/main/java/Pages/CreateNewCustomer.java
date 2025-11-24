@@ -1,10 +1,11 @@
 package Pages;
 
 import Utils.Driver;
+import models.Customer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class CreateNewCustomer {
+public class CreateNewCustomer extends BasePage {
     private final By nameFieldLocator = By.name("j_idt70:name");
     private final By emailFieldLocator = By.name("j_idt70:email");
     private final By phoneFieldLocator = By.name("j_idt70:phone");
@@ -17,9 +18,13 @@ public class CreateNewCustomer {
     }
 
     //1. Name field is BLANK & ENABLED
-    public boolean isNameFieldEmpty() {
-        return Driver.WEB_DRIVER.findElement(nameFieldLocator).getText().isEmpty();
+    public String isNameFieldEmpty() {
+//        return Driver.WEB_DRIVER.findElement(nameFieldLocator).getText().isEmpty();
+        return getText(nameFieldLocator);
+
     }
+
+    // getText --> Assert Equals
 
     public boolean isNameFieldEnabled() {
         return Driver.WEB_DRIVER.findElement(nameFieldLocator).isEnabled();
@@ -64,7 +69,14 @@ public class CreateNewCustomer {
         enterAddress(address);
         clickCreateCustomerButton();
     }
-    
+
+    public void fillForm(Customer customer) {
+        type(nameFieldLocator, customer.getName());
+        type(emailFieldLocator, customer.getEmail());
+        type(phoneFieldLocator, customer.getPhone());
+        type(addressFieldLocator, customer.getAddress());
+    }
+
     
 
     public void enterName(String name) {
