@@ -16,9 +16,9 @@ public class Campaign {
     private String status;
     private LocalDate startDate;
     private LocalDate endDate;
-    private String expectedRevenue;
-    private String budgetedCost;
-    private String actualCost;
+    private Integer expectedRevenue;
+    private Integer budgetedCost;
+    private Integer actualCost;
     private String description;
 
 
@@ -27,6 +27,15 @@ public class Campaign {
         return campaign.getCampaignTypeName();
     }
 
+//    public List<String> toList() {
+//        List<String> data = new ArrayList<>();
+//        data.add(getCampaignName());
+//        data.add(getType());
+//        data.add(getStatus());
+//        data.add(String.valueOf(getStartDate()));
+//        data.add(String.valueOf(getEndDate()));
+//        return data;
+//    }
 
     public static List<String> getListCampaignData(Campaign campaign) {   // Campaign Class
         List<String> data = new ArrayList<>();
@@ -37,6 +46,7 @@ public class Campaign {
         data.add(String.valueOf(campaign.getEndDate()));
         return data;
     }
+
 
 }
 
