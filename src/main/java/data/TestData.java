@@ -5,7 +5,7 @@ import java.util.List;
 
 public class TestData {
 
-    public List<String> expectedErrorMessages = Arrays.asList( // đổi tên
+    public List<String> expectedErrorMessages = Arrays.asList(
             "Please enter campaign name",
             "Please enter start date",
             "Please enter end date",
@@ -14,5 +14,7 @@ public class TestData {
             "Please enter actual cost",
             "Please enter description"
     );
+
+
 
 }
