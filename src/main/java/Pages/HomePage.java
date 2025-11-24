@@ -7,7 +7,7 @@ public class HomePage extends BasePage {
     private final By campaignsLocator = By.className("fa-university");
     private final By showAllCampaign = By.linkText("Show All Campaigns");
     private final By createCampaign = By.linkText("Create Campaign");
-    private final By listCampaign = By.linkText("Show All Campaign Type");
+    private final By listCampaign = By.linkText("Show All Campaign Types");
     private final By campaignType = By.linkText("Create Campaign Type");
 
     // Create Campaign button
