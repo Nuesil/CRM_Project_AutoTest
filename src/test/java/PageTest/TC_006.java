@@ -39,5 +39,6 @@ public class TC_006 extends TestBase {
         log.info("Step 5: Assert url matches");
         Assert.assertTrue(createCampaignPage.getTitle().contains("Create Campaign"), "Create Campaign is not displayed");
 
+
     }
 }
