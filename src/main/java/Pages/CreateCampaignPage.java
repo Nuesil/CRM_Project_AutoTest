@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CreateCampaignPage extends BasePage {
 
-    private final By pageTitle = By.cssSelector("div.col-lg-10 > h2");
+    private final By pageTitle = By.xpath("//h2[text()='Create Campaign']");
     private final By campaignNameLocator = By.id("j_idt70:cn");    // ByChained ( By.
     private final By typeLocator = By.name("j_idt70:j_idt74");
     private final By statusLocator = By.name("j_idt70:j_idt77");
@@ -23,9 +23,8 @@ public class CreateCampaignPage extends BasePage {
     private final By getDesError = By.xpath("//textarea[@id='j_idt70:de']/preceding-sibling::span");
 
 
-    private By getErrorMessage(String id) {
+    private By getErrorMessage(By locator) {
         return new ByChained(
-                By.id(id),
                 By.xpath("preceding-sibling::span")
         );
     }
@@ -33,17 +32,15 @@ public class CreateCampaignPage extends BasePage {
 
     public List<String> getActualErrorMessages() {
         return Arrays.asList(
-                getText(getErrorMessage("j_idt70:cn")),
-                getText(getErrorMessage("j_idt70:sd")),
-                getText(getErrorMessage("j_idt70:ed")),
-                getText(getErrorMessage("j_idt70:er")),
-                getText(getErrorMessage("j_idt70:bc")),
-                getText(getErrorMessage("j_idt70:ac")),
+                getText(getErrorMessage(campaignNameLocator)),
+                getText(getErrorMessage(statusLocator)),
+                getText(getErrorMessage(endDateLocator)),
+                getText(getErrorMessage(revenueLocator)),
+                getText(getErrorMessage(budgetLocator)),
+                getText(getErrorMessage(actualCostLocator)),
                 getText(getDesError)
         );
     }
-
-
 
 
     // fix
@@ -53,9 +50,9 @@ public class CreateCampaignPage extends BasePage {
         type(statusLocator, campaign.getStatus());
         type(startDateLocator, String.valueOf(campaign.getStartDate()));
         type(endDateLocator, String.valueOf(campaign.getEndDate()));
-        type(revenueLocator, campaign.getExpectedRevenue());
-        type(budgetLocator, campaign.getBudgetedCost());
-        type(actualCostLocator, campaign.getActualCost());
+        type(revenueLocator, String.valueOf(campaign.getExpectedRevenue()));
+        type(budgetLocator, String.valueOf(campaign.getBudgetedCost()));
+        type(actualCostLocator, String.valueOf(campaign.getActualCost()));
         type(desLocator, campaign.getDescription());
 
     }
@@ -63,7 +60,6 @@ public class CreateCampaignPage extends BasePage {
     public void clickCreate() {
         click(createLocator);
     }
-
 
     public String getTitle() {
         return getText(pageTitle);
