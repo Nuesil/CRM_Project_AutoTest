@@ -19,10 +19,10 @@ public class ShowAllCampaignPage extends BasePage {
 
     public void filterCampaignName(Campaign campaign) {
         type(filterCampaignName,campaign.getCampaignName());
+        waitForTextToBePresent(firstColumnCells, campaign.getCampaignName());
     }
 
-    public List<String> getFirstCampaignName(Campaign campaign) {
-        waitForTextToBePresent(firstColumnCells, campaign.getCampaignName());
+    public List<String> getFirstCampaignName() {
         return getTextInList(firstColumnCells)
                 .stream()
                 .map(text -> text.replaceAll("\\s*Edit.*", "").trim())
@@ -30,28 +30,16 @@ public class ShowAllCampaignPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-    public String getFirstCampaignAsString(Campaign campaign) {
-        List<String> campaignData = getFirstCampaignName(campaign);
-        return String.join(" ", campaignData);
-    }
-
-
-    public String getListCampaignDataString(Campaign campaign) {
-        List<String> campaignData = Campaign.getListCampaignData(campaign);
-        return String.join(" ",campaignData);
-    }
-
-
-//
-//    private By editLocator(Integer id) {
-//        return By.cssSelector(String.format("a[href='/CRMweb/faces/editCampaign.xhtml?id=%d']", id));
+//    public String getFirstCampaignAsString(Campaign campaign) {
+//        List<String> campaignData = getFirstCampaignName(campaign);
+//        return String.join(" ", campaignData);
 //    }
 //
-//    public void clickEditCampaign(Integer id) {
-//        By getId = editLocator(id);
-//        click(getId);
+//
+//    public String getListCampaignDataString(Campaign campaign) {
+//        List<String> campaignData = Campaign.getListCampaignData(campaign);
+//        return String.join(" ",campaignData);
 //    }
-
 
 
 }
