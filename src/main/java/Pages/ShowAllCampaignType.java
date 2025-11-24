@@ -16,24 +16,20 @@ public class ShowAllCampaignType extends BasePage {
 
     public void filterCampaignTypeName(Campaign campaign) {
         type(campaignTypeNameFilter, campaign.getCampaignTypeName());
+        waitForTextToBePresent(firstColumnCells, campaign.getCampaignTypeName());
     }
 
-    public String getCampaignTypeNameText(Campaign campaign) {
-        waitForTextToBePresent(firstColumnCells, campaign.getCampaignTypeName());
+    public String getCampaignTypeNameText() {
         return getText(firstColumnCells);
     }
-
 
     public void openCreateCampaignType() {
         click(newCampaignType);
     }
 
-
-
     public void clickEditCampaignType() {
         click(IdEditLocator);
     }
-
 
     public void delete() {
         click(deleteLocator);
