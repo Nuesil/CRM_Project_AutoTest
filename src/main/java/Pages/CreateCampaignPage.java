@@ -57,6 +57,45 @@ public class CreateCampaignPage extends BasePage {
 
     }
 
+    // Thay vì fillForm toàn bộ, tách ra từng hàm:
+    public void enterCampaignName(String name) {
+        type(campaignNameLocator, name);
+    }
+
+    public void enterType(String type) {
+        type(typeLocator, type);
+    }
+
+    public void enterStatus(String status) {
+        type(statusLocator, status);
+    }
+
+    public void enterStartDate(String startDate) {
+        type(startDateLocator, startDate);
+    }
+
+    public void enterEndDate(String endDate) {
+        type(endDateLocator, endDate);
+    }
+
+    public void enterRevenue(String revenue) {
+        type(revenueLocator, revenue);
+    }
+
+    public void enterBudget(String budget) {
+        type(budgetLocator, budget);
+    }
+
+    public void enterActualCost(String actualCost) {
+        type(actualCostLocator, actualCost);
+    }
+
+    public void enterDescription(String description) {
+        type(desLocator, description);
+    }
+
+
+
     public void clickCreate() {
         click(createLocator);
     }
