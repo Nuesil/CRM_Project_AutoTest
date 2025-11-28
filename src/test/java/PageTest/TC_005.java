@@ -1,4 +1,4 @@
-package TC_005;
+package PageTest;
 
 import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
@@ -26,19 +26,14 @@ public class TC_005 extends TestBase {
         loginPage.login("vyvanviet@gmail.com", "abc123");
         customerListView.clickNewCustomerButton();
         createCustomerPage.createNewCustomer(randomCustomer);
-        customerListView.enterNameField(randomCustomer.getName()); // enter name
+        customerListView.enterNameField(randomCustomer.getName());
         customerListView.enterEmailField(randomCustomer.getEmail());
         customerListView.enterAddressField(randomCustomer.getAddress());
         customerListView.enterPhoneField(randomCustomer.getPhone());
-//        softAssert.assertEquals(customerListView.getNoRecordFound(), "No records found.");
-//        softAssert.assertAll();
-//
-        System.out.println(customerListView.getValueName());
 
+        softAssert.assertEquals(randomCustomer.toString(), customerListView.getCustomer().toString());
 
-//        softAssert.assertTrue(isCustomerDisplayed, "Customer was not created successfully");
-//
-//        softAssert.assertAll();
+        softAssert.assertAll();
         System.out.println("Passed");
     }
 }

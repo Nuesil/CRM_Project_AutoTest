@@ -21,6 +21,16 @@ public class Customer {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -37,7 +47,6 @@ public class Customer {
         this.address = address;
     }
 
-
     private String name;
     private String email;
     private String phone;
@@ -50,5 +59,3 @@ public class Customer {
         this.address = address;
     }
 }
-
-

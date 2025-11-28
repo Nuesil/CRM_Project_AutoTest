@@ -25,7 +25,7 @@ public class TC_010 extends TestBase {
     Campaign newcampaign = campaignData.generateCampaign();
 
     @Test(description = "Test 10: Verify users edit Campaign Type successfully")
-    public void Test10() throws InterruptedException {
+    public void Test10()  {
 
 
         log.info("Step 1: Logging in with valid username and password");

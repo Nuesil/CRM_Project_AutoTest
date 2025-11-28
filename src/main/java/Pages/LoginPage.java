@@ -1,21 +1,22 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import Utils.Driver;
-
+import org.openqa.selenium.By;
 
 public class LoginPage extends BasePage {
-    
-
+    // Campaign Page
+    private final By emailLocator = By.id("campaigntypeform:email");
+    private final By passLocator = By.id("campaigntypeform:pass");
+    private final By loginLocator = By.name("campaigntypeform:j_idt14");
 
     public void Login(String email, String password) {
-        type(emailFieldLocator,email);
-        type(passwordFieldLocator, password);
-        click(loginButtonLocator);
+        type(emailLocator,email);
+        type(passLocator, password);
+        click(loginLocator);
     }
-    
+
     // Customer Attribute: Locator
-    private final By emailFieldLocator = By.name("campaigntypeform:email");
+    private final By emailFieldLocator = By.id("campaigntypeform:email");
     private final By passwordFieldLocator = By.id("campaigntypeform:pass");
     private final By loginButtonLocator = By.name("campaigntypeform:j_idt14");
 
@@ -26,14 +27,14 @@ public class LoginPage extends BasePage {
     }
 
     public void enterEmail(String email) {
-        Driver.WEB_DRIVER.findElement(emailFieldLocator).sendKeys(email);
+        Driver.getWebDriver().findElement(emailFieldLocator).sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        Driver.WEB_DRIVER.findElement(passwordFieldLocator).sendKeys(password);
+        Driver.getWebDriver().findElement(passwordFieldLocator).sendKeys(password);
     }
 
     public void clickOnLoginButton() {
-        Driver.WEB_DRIVER.findElement(loginButtonLocator).click();
+        Driver.getWebDriver().findElement(loginButtonLocator).click();
     }
 }

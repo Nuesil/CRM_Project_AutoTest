@@ -15,7 +15,7 @@ public class TestBase {
         options.addArguments(new String[]{"--guest"});
         Driver.setDrivers(new ChromeDriver(options));
         Driver.getWebDriver().get("http://14.176.232.213:8080/CRMweb/faces/login.xhtml");
-        new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5L));
+        new WebDriverWait(Driver.getWebDriver(), Duration.ofSeconds(5000));
     }
 
     @AfterMethod
