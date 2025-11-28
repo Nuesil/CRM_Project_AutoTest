@@ -30,16 +30,6 @@ public class ShowAllCampaignPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-//    public String getFirstCampaignAsString(Campaign campaign) {
-//        List<String> campaignData = getFirstCampaignName(campaign);
-//        return String.join(" ", campaignData);
-//    }
-//
-//
-//    public String getListCampaignDataString(Campaign campaign) {
-//        List<String> campaignData = Campaign.getListCampaignData(campaign);
-//        return String.join(" ",campaignData);
-//    }
 
 
 }

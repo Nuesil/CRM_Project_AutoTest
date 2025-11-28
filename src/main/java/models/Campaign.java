@@ -23,29 +23,23 @@ public class Campaign {
 
 
 
-    public String getListCampaignTypeData(Campaign campaign) { //move
-        return campaign.getCampaignTypeName();
-    }
-
-//    public List<String> toList() {
-//        List<String> data = new ArrayList<>();
-//        data.add(getCampaignName());
-//        data.add(getType());
-//        data.add(getStatus());
-//        data.add(String.valueOf(getStartDate()));
-//        data.add(String.valueOf(getEndDate()));
-//        return data;
-//    }
-
-    public static List<String> getListCampaignData(Campaign campaign) {   // Campaign Class
+    public List<String> getCampaignTypeData() {
         List<String> data = new ArrayList<>();
-        data.add(campaign.getCampaignName());
-        data.add(campaign.getType());
-        data.add(campaign.getStatus());
-        data.add(String.valueOf(campaign.getStartDate()));
-        data.add(String.valueOf(campaign.getEndDate()));
+        data.add(getCampaignTypeName());
         return data;
     }
+
+    public List<String> getCampaignData() {
+        List<String> data = new ArrayList<>();
+        data.add(getCampaignName());
+        data.add(getType());
+        data.add(getStatus());
+        data.add(String.valueOf(getStartDate()));
+        data.add(String.valueOf(getEndDate()));
+        return data;
+    }
+
+
 
 
 }

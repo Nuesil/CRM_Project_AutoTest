@@ -55,6 +55,6 @@ public class TC_010 extends TestBase {
         showAllCampaignType.filterCampaignTypeName(newcampaign);
 
         log.info("Step 11: Assert campaign name matches");
-        Assert.assertEquals(newcampaign.getListCampaignTypeData(newcampaign), showAllCampaignType.getCampaignTypeNameText());
+        Assert.assertEquals(newcampaign.getCampaignTypeData(), showAllCampaignType.getCampaignTypeNameText());
     }
 }

@@ -24,10 +24,9 @@ public class CreateCampaignPage extends BasePage {
 
 
     private By getErrorMessage(By locator) {
-        return new ByChained(
-                By.xpath("preceding-sibling::span")
-        );
+        return new ByChained(locator, By.xpath("preceding-sibling::span"));
     }
+
 
 
     public List<String> getActualErrorMessages() {

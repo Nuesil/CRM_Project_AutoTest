@@ -44,8 +44,7 @@ public class TC_008 extends TestBase {
         showAllCamPaignPage.filterCampaignName(campaign);
 
         log.info("Step 7: Assert Campaign name matches");
-        Assert.assertEquals(showAllCamPaignPage.getFirstCampaignName(), Campaign.getListCampaignData(campaign));
-
+        Assert.assertEquals(showAllCamPaignPage.getFirstCampaignName(), campaign.getCampaignData());
      }
 
 }

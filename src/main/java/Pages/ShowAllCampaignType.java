@@ -3,6 +3,8 @@ package Pages;
 import models.Campaign;
 import org.openqa.selenium.By;
 
+import java.util.List;
+
 public class ShowAllCampaignType extends BasePage {
 
     private final By newCampaignType = By.linkText("New Campagin Type");
@@ -19,8 +21,8 @@ public class ShowAllCampaignType extends BasePage {
         waitForTextToBePresent(firstColumnCells, campaign.getCampaignTypeName());
     }
 
-    public String getCampaignTypeNameText() {
-        return getText(firstColumnCells);
+    public List<String> getCampaignTypeNameText() {
+        return getTextInList(firstColumnCells);
     }
 
     public void openCreateCampaignType() {
