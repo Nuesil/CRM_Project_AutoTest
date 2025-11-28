@@ -1,6 +1,7 @@
 package models;
-import lombok.Data;
 
+
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -23,11 +24,7 @@ public class Campaign {
 
 
 
-    public List<String> getCampaignTypeData() {
-        List<String> data = new ArrayList<>();
-        data.add(getCampaignTypeName());
-        return data;
-    }
+
 
     public List<String> getCampaignData() {
         List<String> data = new ArrayList<>();
