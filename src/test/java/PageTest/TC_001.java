@@ -1,4 +1,4 @@
-package TC_001;
+package PageTest;
 
 import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
@@ -18,7 +18,7 @@ public class TC_001 extends TestBase {
 
     @Test
     public void verifyCreateCustomerPageElements() {
-        loginPage.login("vyvanviet@gmail.com", "abc123");
+        loginPage.Login("vyvanviet@gmail.com", "abc123");
         customerListView.clickNewCustomerButton();
 
         // T.1. Name Field: Enabled & Blank by default

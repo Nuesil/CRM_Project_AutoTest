@@ -1,16 +1,11 @@
-package TC_002;
+package PageTest;
 
 import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
 import Pages.LoginPage;
 import TestBase.TestBase;
-import Utils.Driver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
-import java.time.Duration;
 
 public class TC_002 extends TestBase {
     //1. Login to the system
@@ -22,8 +17,8 @@ public class TC_002 extends TestBase {
     SoftAssert softAssert = new SoftAssert();
 
     @Test
-    public void verifyNewCustomerMenuElements() {
-        loginPage.login("vyvanviet@gmail.com", "abc123");
+    public void verifyNewCustomerMenuElements()  {
+        loginPage.Login("vyvanviet@gmail.com", "abc123");
         customerListView.clickCustomerMenu();
         customerListView.clickCreateCustomerMenu();
 

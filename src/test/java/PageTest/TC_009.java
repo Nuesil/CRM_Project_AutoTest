@@ -22,10 +22,10 @@ public class TC_009 extends TestBase {
     Campaign campaign = campaignData.generateCampaign();
 
     @Test(description = "Test 009: Verify users creates Campaign Type successfully")
-    public void Test09() {
+    public void Test09()  {
 
         log.info("Step 1: Logging in with valid username and password");
-        loginPage.Login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
+        loginPage.login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
 
         log.info("Step 2: Click Campaign");
         homePage.clickCampaigns();

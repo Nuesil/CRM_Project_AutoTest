@@ -1,4 +1,4 @@
-package TC_004;
+package PageTest;
 
 import Pages.CreateNewCustomer;
 import Pages.CustomerListView;

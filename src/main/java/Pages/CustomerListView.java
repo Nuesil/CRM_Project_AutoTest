@@ -1,19 +1,16 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import Utils.Driver;
-import org.openqa.selenium.WebDriver;
+import models.Customer;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CustomerListView {
-    private final By newCustomerButtonLocator = By.xpath("//a[@class='btn btn-primary']");
+public class CustomerListView extends BasePage {
+    private final By newCustomerButtonLocator = By.linkText("New Customer");
     private final By customerMenuLocator = By.xpath("//span[@class='nav-label' and normalize-space()='Customer']");
     private final By createCustomerMenuLocator = By.xpath("//a[normalize-space()='Create Customer']");
     private final By filterNameLocator = By.id("j_idt71:tbl:j_idt72:filter");
@@ -22,31 +19,40 @@ public class CustomerListView {
     private final By filterPhoneLocator = By.id("j_idt71:tbl:j_idt81:filter");
     private final By noRecordFoundLocator = By.xpath("//table/tbody/tr[contains(@class, 'ui-widget-content ui-datatable-empty-message')]");
     private final By nameTitleTableLocator = By.xpath("//table/thead/tr/th/span[contains(@class,'ui-column-title')]");
+    private final By listRecordLocator = By.xpath("//table/tbody/tr");
 
     public void clickNewCustomerButton() {
-        Driver.WEB_DRIVER.findElement(newCustomerButtonLocator).click();
+//        Driver.WEB_DRIVER.findElement(newCustomerButtonLocator).click();
+        click(newCustomerButtonLocator);
     }
+
     public void clickCustomerMenu() {
-        Driver.WEB_DRIVER.findElement(customerMenuLocator).click();
+        Driver.getWebDriver().findElement(customerMenuLocator).click();
     }
+
     public void clickCreateCustomerMenu() {
-        Driver.WEB_DRIVER_WAIT.until(ExpectedConditions.elementToBeClickable(createCustomerMenuLocator));
-        Driver.WEB_DRIVER.findElement(createCustomerMenuLocator).click();
+        Driver.getWebdriverWait().until(ExpectedConditions.elementToBeClickable(createCustomerMenuLocator));
+        Driver.getWebDriver().findElement(createCustomerMenuLocator).click();
     }
+
     public void enterNameField(String name) {
-        Driver.WEB_DRIVER.findElement(filterNameLocator).sendKeys(name);
+        Driver.getWebDriver().findElement(filterNameLocator).sendKeys(name);
     }
+
     public void enterEmailField(String email) {
-        Driver.WEB_DRIVER.findElement(filterEmailLocator).sendKeys(email);
+        Driver.getWebDriver().findElement(filterEmailLocator).sendKeys(email);
     }
+
     public void enterAddressField(String address) {
-        Driver.WEB_DRIVER.findElement(filterAddressLocator).sendKeys(address);
+        Driver.getWebDriver().findElement(filterAddressLocator).sendKeys(address);
     }
+
     public void enterPhoneField(String phone) {
-        Driver.WEB_DRIVER.findElement(filterPhoneLocator).sendKeys(phone);
+        Driver.getWebDriver().findElement(filterPhoneLocator).sendKeys(phone);
     }
+
     public String getNoRecordFound() {
-        return Driver.WEB_DRIVER.findElement(noRecordFoundLocator).getText();
+        return Driver.getWebDriver().findElement(noRecordFoundLocator).getText();
     }
 
     private String searchCustomerResult(String columnName, int compareRow) {
@@ -68,7 +74,7 @@ public class CustomerListView {
         // +1 vì XPath index bắt đầu từ 1
         colIdx = colIdx + 1;
 
-        Driver.WEB_DRIVER_WAIT.until(
+        Driver.getWebdriverWait().until(
                 ExpectedConditions.visibilityOfElementLocated(By.xpath("//table/tbody/tr[1]"))
         );
 
@@ -86,11 +92,29 @@ public class CustomerListView {
         return searchCustomerResult("Email", 1);
     }
 
-    public String getValueAdd() {
+    public String getValueAddress() {
         return searchCustomerResult("Address", 1);
     }
 
     public String getValuePhone() {
         return searchCustomerResult("Phone", 1);
+    }
+
+    public Customer getCustomer() {
+        List<WebElement> listRecord = Driver.getWebdriverWait().until(
+                ExpectedConditions.numberOfElementsToBe(listRecordLocator, 1)
+        );
+
+        // Optional safety check
+        if (listRecord.size() != 1) {
+            throw new RuntimeException("Expected exactly 1 customer record but found: " + listRecord.size());
+        }
+
+        return new Customer(
+                getValueName(),
+                getValueEmail(),
+                getValuePhone(),
+                getValueAddress()
+        );
     }
 }

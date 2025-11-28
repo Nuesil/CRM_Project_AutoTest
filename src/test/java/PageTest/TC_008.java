@@ -25,7 +25,7 @@ public class TC_008 extends TestBase {
     public void Test08() {
 
         log.info("Step 1: Logging in with valid username and password");
-        loginPage.Login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
+        loginPage.login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
 
         log.info("Step 2: Click Campaign");
         homePage.clickCampaigns();

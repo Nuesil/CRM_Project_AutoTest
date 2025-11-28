@@ -1,11 +1,10 @@
-package TC_003;
+package PageTest;
 
 import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
 import Pages.LoginPage;
 import TestBase.TestBase;
 import Utils.FakerData;
-import com.github.javafaker.Faker;
 import models.Customer;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;

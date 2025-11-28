@@ -9,7 +9,6 @@ import TestBase.TestBase;
 import Pages.CreateCampaignPage;
 import Pages.HomePage;
 import Pages.LoginPage;
-import Utils.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
@@ -23,10 +22,8 @@ public class TC_006 extends TestBase {
 
     @Test(description = "Test 06: Verify “New Campaign” button navigates to Create Campaign page")
     public void Test06() {
-
         log.info("Step 1: Logging in with valid username and password");
-        loginPage.Login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
-
+        loginPage.login("vyvanviet@gmail.com", "abc123");
         log.info("Step 2: Click Campaign");
         homepage.clickCampaigns();
 
@@ -38,7 +35,5 @@ public class TC_006 extends TestBase {
 
         log.info("Step 5: Assert url matches");
         Assert.assertTrue(createCampaignPage.getTitle().contains("Create Campaign"), "Create Campaign is not displayed");
-
-
     }
 }
