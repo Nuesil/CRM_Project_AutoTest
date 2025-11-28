@@ -1,8 +1,8 @@
 package Utils;
 
 
-import com.github.javafaker.Faker;
 import models.Customer;
+import net.datafaker.Faker;
 
 public class FakerData {
     public static Faker faker = new Faker();
