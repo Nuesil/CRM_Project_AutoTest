@@ -42,7 +42,7 @@ public class CreateCampaignPage extends BasePage {
     }
 
 
-    // fix
+
     public void fillForm(Campaign campaign) {
         type(campaignNameLocator, campaign.getCampaignName());
         type(typeLocator, campaign.getType());
@@ -56,7 +56,7 @@ public class CreateCampaignPage extends BasePage {
 
     }
 
-    // Thay vì fillForm toàn bộ, tách ra từng hàm:
+
     public void enterCampaignName(String name) {
         type(campaignNameLocator, name);
     }
@@ -92,7 +92,6 @@ public class CreateCampaignPage extends BasePage {
     public void enterDescription(String description) {
         type(desLocator, description);
     }
-
 
 
     public void clickCreate() {
