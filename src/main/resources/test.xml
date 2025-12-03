@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite1" parallel="tests" thread-count="2">
+    <test name="PageTest">
+        <classes>
+            <class name="PageTest.TC_001"/>
+            <class name="PageTest.TC_002"/>
+            <class name="PageTest.TC_003"/>
+            <class name="PageTest.TC_004"/>
+            <class name="PageTest.TC_005"/>
+            <class name="PageTest.TC_006"/>
+            <class name="PageTest.TC_007"/>
+            <class name="PageTest.TC_008"/>
+            <class name="PageTest.TC_009"/>
+            <class name="PageTest.TC_010"/>
+        </classes>
+    </test>
+</suite>
