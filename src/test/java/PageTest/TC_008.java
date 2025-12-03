@@ -7,6 +7,7 @@ import Pages.LoginPage;
 import Pages.ShowAllCampaignPage;
 import Utils.Config;
 import data.campaignData;
+import io.qameta.allure.Allure;
 import models.Campaign;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,6 +45,7 @@ public class TC_008 extends TestBase {
         showAllCamPaignPage.filterCampaignName(campaign);
 
         log.info("Step 7: Assert Campaign name matches");
+        Allure.step("Verify the newly created campaign is displayed correctly");
         Assert.assertEquals(showAllCamPaignPage.getFirstCampaignName(), campaign.getCampaignData());
      }
 

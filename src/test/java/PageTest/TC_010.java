@@ -8,6 +8,7 @@ import Pages.LoginPage;
 import Pages.ShowAllCampaignType;
 import Utils.Config;
 import data.campaignData;
+import io.qameta.allure.Allure;
 import models.Campaign;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -50,11 +51,11 @@ public class TC_010 extends TestBase {
         log.info("Step 8 : Edit Campaign Type name");
         editCampaignType.enterCampaignTypeName(newcampaign);
 
-
         log.info("Step 10: Filter campaign type name after edit");
         showAllCampaignType.filterCampaignTypeName(newcampaign);
 
         log.info("Step 11: Assert campaign name matches");
+        Allure.step("Verify the edited Campaign Type is updated correctly");
         Assert.assertEquals(newcampaign.getCampaignTypeName(), showAllCampaignType.getCampaignTypeNameText());
     }
 }

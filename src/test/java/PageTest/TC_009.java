@@ -7,6 +7,7 @@ import Pages.LoginPage;
 import Pages.ShowAllCampaignType;
 import Utils.Config;
 import data.campaignData;
+import io.qameta.allure.Allure;
 import models.Campaign;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,6 +44,7 @@ public class TC_009 extends TestBase {
         showAllCampaignType.filterCampaignTypeName(campaign);
 
         log.info("Step 8: Assert Campaign Name matches");
+        Allure.step("Validate that the created Campaign Type appears in the list with the correct name");
         Assert.assertEquals(showAllCampaignType.getCampaignTypeNameText(), campaign.getCampaignTypeName());
 
     }
