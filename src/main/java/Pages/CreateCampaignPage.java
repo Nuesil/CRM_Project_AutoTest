@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import models.Campaign;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.pagefactory.ByChained;
@@ -22,17 +23,14 @@ public class CreateCampaignPage extends BasePage {
     private final By createLocator = By.name("j_idt70:j_idt93");
     private final By getDesError = By.xpath("//textarea[@id='j_idt70:de']/preceding-sibling::span");
 
-
     private By getErrorMessage(By locator) {
         return new ByChained(locator, By.xpath("preceding-sibling::span"));
     }
 
-
-
     public List<String> getActualErrorMessages() {
         return Arrays.asList(
                 getText(getErrorMessage(campaignNameLocator)),
-                getText(getErrorMessage(statusLocator)),
+                getText(getErrorMessage(startDateLocator)),
                 getText(getErrorMessage(endDateLocator)),
                 getText(getErrorMessage(revenueLocator)),
                 getText(getErrorMessage(budgetLocator)),
@@ -41,8 +39,7 @@ public class CreateCampaignPage extends BasePage {
         );
     }
 
-
-
+    @Step("Fill form")
     public void fillForm(Campaign campaign) {
         type(campaignNameLocator, campaign.getCampaignName());
         type(typeLocator, campaign.getType());
@@ -56,48 +53,12 @@ public class CreateCampaignPage extends BasePage {
 
     }
 
-
-    public void enterCampaignName(String name) {
-        type(campaignNameLocator, name);
-    }
-
-    public void enterType(String type) {
-        type(typeLocator, type);
-    }
-
-    public void enterStatus(String status) {
-        type(statusLocator, status);
-    }
-
-    public void enterStartDate(String startDate) {
-        type(startDateLocator, startDate);
-    }
-
-    public void enterEndDate(String endDate) {
-        type(endDateLocator, endDate);
-    }
-
-    public void enterRevenue(String revenue) {
-        type(revenueLocator, revenue);
-    }
-
-    public void enterBudget(String budget) {
-        type(budgetLocator, budget);
-    }
-
-    public void enterActualCost(String actualCost) {
-        type(actualCostLocator, actualCost);
-    }
-
-    public void enterDescription(String description) {
-        type(desLocator, description);
-    }
-
-
+    @Step ("Click Create")
     public void clickCreate() {
         click(createLocator);
     }
 
+    @Step("Get Title")
     public String getTitle() {
         return getText(pageTitle);
     }

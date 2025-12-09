@@ -19,7 +19,7 @@ public class TC_007 extends TestBase {
     TestData testData = new TestData();
 
     @Test(description = "Test 007: Verify that campaign creation fails when the user leaves campaign Name blank")
-    public void Test07() {
+    public void Test007() {
 
         log.info("Step 1: Logging in with valid username and password");
         loginPage.login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
@@ -38,5 +38,6 @@ public class TC_007 extends TestBase {
 
         log.info("Step 5: Assert Error message matches");
         Assert.assertEquals(createCampaignPage.getActualErrorMessages(), testData.expectedErrorMessages, "Error message do not match");
+
     }
 }

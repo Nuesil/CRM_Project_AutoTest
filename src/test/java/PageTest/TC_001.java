@@ -4,6 +4,7 @@ import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
 import Pages.LoginPage;
 import TestBase.TestBase;
+import Utils.Config;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -18,7 +19,7 @@ public class TC_001 extends TestBase {
 
     @Test
     public void verifyCreateCustomerPageElements() {
-        loginPage.login("vyvanviet@gmail.com", "abc123");
+        loginPage.login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
         customerListView.clickNewCustomerButton();
 
         // T.1. Name Field: Enabled & Blank by default

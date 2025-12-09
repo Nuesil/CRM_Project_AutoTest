@@ -1,5 +1,6 @@
 package Pages;
 
+import io.qameta.allure.Step;
 import models.Campaign;
 import org.openqa.selenium.By;
 
@@ -14,8 +15,7 @@ public class ShowAllCampaignType extends BasePage {
     private final By IdEditLocator = By.xpath("//tbody[@id='formcampaigntype:j_idt72_data']//tr/td[2]/a");
     private final By deleteLocator = By.cssSelector("input[type='submit']");
 
-
-
+    @Step("Filter Campaign Type Name")
     public void filterCampaignTypeName(Campaign campaign) {
         type(campaignTypeNameFilter, campaign.getCampaignTypeName());
         waitForTextToBePresent(firstColumnCells, campaign.getCampaignTypeName());
@@ -25,18 +25,14 @@ public class ShowAllCampaignType extends BasePage {
         return getText(firstColumnCells);
     }
 
+    @Step("Open Create Campaign Type Page")
     public void openCreateCampaignType() {
         click(newCampaignType);
     }
 
+    @Step("Edit Campaign Type")
     public void clickEditCampaignType() {
         click(IdEditLocator);
     }
-
-    public void delete() {
-        click(deleteLocator);
-    }
-
-
 
 }
