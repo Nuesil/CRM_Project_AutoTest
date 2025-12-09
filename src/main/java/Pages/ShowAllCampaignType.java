@@ -35,8 +35,4 @@ public class ShowAllCampaignType extends BasePage {
         click(IdEditLocator);
     }
 
-    public void delete() {
-        click(deleteLocator);
-    }
-
 }

@@ -39,6 +39,5 @@ public class TC_007 extends TestBase {
         log.info("Step 5: Assert Error message matches");
         Assert.assertEquals(createCampaignPage.getActualErrorMessages(), testData.expectedErrorMessages, "Error message do not match");
 
-        System.out.println(createCampaignPage.getActualErrorMessages());
     }
 }

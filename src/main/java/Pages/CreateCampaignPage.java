@@ -23,13 +23,9 @@ public class CreateCampaignPage extends BasePage {
     private final By createLocator = By.name("j_idt70:j_idt93");
     private final By getDesError = By.xpath("//textarea[@id='j_idt70:de']/preceding-sibling::span");
 
-
-
     private By getErrorMessage(By locator) {
         return new ByChained(locator, By.xpath("preceding-sibling::span"));
     }
-
-
 
     public List<String> getActualErrorMessages() {
         return Arrays.asList(
@@ -42,7 +38,6 @@ public class CreateCampaignPage extends BasePage {
                 getText(getDesError)
         );
     }
-
 
     @Step("Fill form")
     public void fillForm(Campaign campaign) {

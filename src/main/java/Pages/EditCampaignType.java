@@ -15,4 +15,5 @@ public class EditCampaignType extends BasePage {
         type(campaignTypeName, campaign.getCampaignTypeName());
         click(saveLocator);
     }
+
 }

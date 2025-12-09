@@ -33,7 +33,5 @@ public class ShowAllCampaignPage extends BasePage {
                 .collect(Collectors.toList());
     }
 
-
-
 }
 

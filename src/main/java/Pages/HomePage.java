@@ -11,7 +11,6 @@ public class HomePage extends BasePage {
     private final By listCampaign = By.linkText("Show All Campaign Types");
     private final By campaignType = By.linkText("Create Campaign Type");
 
-    // Create Campaign button
     private final By NewCampaignButton = By.linkText("New Campaign");
 
     @Step("Click Campaign")

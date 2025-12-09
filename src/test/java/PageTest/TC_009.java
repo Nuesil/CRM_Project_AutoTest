@@ -46,6 +46,5 @@ public class TC_009 extends TestBase {
         log.info("Step 8: Assert Campaign Name matches");
         Allure.step("Validate that the created Campaign Type appears in the list with the correct name");
         Assert.assertEquals(showAllCampaignType.getCampaignTypeNameText(), campaign.getCampaignTypeName());
-
     }
 }
