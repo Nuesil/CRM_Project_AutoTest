@@ -26,12 +26,9 @@ public class TC_005 extends TestBase {
         loginPage.login("vyvanviet@gmail.com", "abc123");
         customerListView.clickNewCustomerButton();
         createCustomerPage.createNewCustomer(randomCustomer);
-        customerListView.enterNameField(randomCustomer.getName());
-        customerListView.enterEmailField(randomCustomer.getEmail());
-        customerListView.enterAddressField(randomCustomer.getAddress());
-        customerListView.enterPhoneField(randomCustomer.getPhone());
+        customerListView.filterByName(randomCustomer.getName());
 
-        softAssert.assertEquals(randomCustomer.toString(), customerListView.getCustomer().toString());
+        softAssert.assertEquals(randomCustomer, customerListView.getCustomer());
 
         softAssert.assertAll();
         System.out.println("Passed");

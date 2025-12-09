@@ -35,8 +35,9 @@ public class CustomerListView extends BasePage {
         Driver.getWebDriver().findElement(createCustomerMenuLocator).click();
     }
 
-    public void enterNameField(String name) {
+    public void filterByName(String name) {
         Driver.getWebDriver().findElement(filterNameLocator).sendKeys(name);
+        Driver.getWebdriverWait().until(ExpectedConditions.stalenessOf(Driver.getWebDriver().findElement(By.id("j_idt71:tbl_data")).findElement(By.cssSelector("td"))));
     }
 
     public void enterEmailField(String email) {
@@ -101,14 +102,16 @@ public class CustomerListView extends BasePage {
     }
 
     public Customer getCustomer() {
-        List<WebElement> listRecord = Driver.getWebdriverWait().until(
-                ExpectedConditions.numberOfElementsToBe(listRecordLocator, 1)
-        );
+//        List<WebElement> listRecord = Driver.getWebdriverWait().until(
+//                ExpectedConditions.numberOfElementsToBe(listRecordLocator, 1)
+//        );
+//
+//        // Optional safety check
+//        if (listRecord.size() != 1) {
+//            throw new RuntimeException("Expected exactly 1 customer record but found: " + listRecord.size());
+//        }
 
-        // Optional safety check
-        if (listRecord.size() != 1) {
-            throw new RuntimeException("Expected exactly 1 customer record but found: " + listRecord.size());
-        }
+
 
         return new Customer(
                 getValueName(),

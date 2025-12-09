@@ -18,7 +18,7 @@ public class TC_001 extends TestBase {
 
     @Test
     public void verifyCreateCustomerPageElements() {
-        loginPage.Login("vyvanviet@gmail.com", "abc123");
+        loginPage.login("vyvanviet@gmail.com", "abc123");
         customerListView.clickNewCustomerButton();
 
         // T.1. Name Field: Enabled & Blank by default

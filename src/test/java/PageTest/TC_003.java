@@ -4,6 +4,7 @@ import Pages.CreateNewCustomer;
 import Pages.CustomerListView;
 import Pages.LoginPage;
 import TestBase.TestBase;
+import Utils.Config;
 import Utils.FakerData;
 import models.Customer;
 import org.testng.annotations.Test;
@@ -22,7 +23,7 @@ public class TC_003 extends TestBase {
 
     @Test
     public void verifyValidationEmailFieldWorking() {
-        loginPage.login("vyvanviet@gmail.com", "abc123");
+        loginPage.login(Config.VALID_USERNAME, Config.VALID_PASSWORD);
         customerListView.clickNewCustomerButton();
 
         randomCustomer.setEmail("an.hoang");

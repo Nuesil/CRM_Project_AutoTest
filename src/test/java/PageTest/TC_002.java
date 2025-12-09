@@ -18,7 +18,7 @@ public class TC_002 extends TestBase {
 
     @Test
     public void verifyNewCustomerMenuElements()  {
-        loginPage.Login("vyvanviet@gmail.com", "abc123");
+        loginPage.login("vyvanviet@gmail.com", "abc123");
         customerListView.clickCustomerMenu();
         customerListView.clickCreateCustomerMenu();
 
