@@ -47,6 +47,9 @@ public class TC_008 extends TestBase {
         log.info("Step 7: Assert Campaign name matches");
         Allure.step("Verify the newly created campaign is displayed correctly");
         Assert.assertEquals(showAllCamPaignPage.getFirstCampaignName(), campaign.getCampaignData());
+
+        System.out.println(showAllCamPaignPage.getFirstCampaignName());
+        System.out.println(campaign.getCampaignData());
      }
 
 }

@@ -9,7 +9,10 @@ public class campaignData {
 
     public static Campaign generateCampaign() {
         Campaign campaign = new Campaign();
-        campaign.setCampaignName("Sale" + FakerData.faker.commerce().department());
+        campaign.setCampaignName(
+                "Sale_" + FakerData.faker.commerce().department().replace(" ", "")
+                        + "_" + FakerData.faker.number().numberBetween(1000, 9999)
+        );
         campaign.setType(FakerData.faker.options().option("discount 10%", "discount 30%", "discount 60%"));
         campaign.setStatus(FakerData.faker.options().option("Done", "Yet"));
         campaign.setStartDate(LocalDate.now());
