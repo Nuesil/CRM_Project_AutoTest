@@ -38,7 +38,7 @@ public class TC_010 extends TestBase {
         log.info("Step 3: Click Create Campaign Type");
         homePage.clickCreateCampaignType();
 
-        log.info("Step 4: Enter campaign type name");
+        log.info("Step 4: Create campaign type name");
         createCampaignTypePage.enterCampaignTypeName(campaign);
 
 
